@@ -1,0 +1,4 @@
+*.log
+cv.synctex*
+build
+*.pdf

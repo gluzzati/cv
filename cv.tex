@@ -1,0 +1,137 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Graduate Curriculum Vitae
+% LaTeX Template
+% Version 1.1 (9/12/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Rensselaer Polytechnic Institute (http://www.rpi.edu/dept/arc/training/latex/resumes/)
+%
+% Important note:
+% This template requires the res.cls file to be in the same directory as the
+% .tex file. The res.cls file provides the resume style used for structuring the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[mm, 10pt]{res} % Use the res.cls style, the font size can be changed to 11pt or 12pt here
+\usepackage[T1]{fontenc}   
+\usepackage[left=15mm, right=20mm, top=10mm ,bottom=10mm]{geometry}
+%\usepackage{helvet} % Default font is the helvetica postscript font
+\usepackage{array}
+\usepackage{hyperref}
+
+
+%\usepackage{newcent} % To change the default font to the new century schoolbook postscript font uncomment this line and comment the one above
+\usepackage[rm,sfdefault]{roboto}
+\usepackage{xcolor}
+
+\setlength{\textwidth}{5.85in} % Text width of the document
+\definecolor{color1}{rgb}{0.4,0.5,0.3}% green
+
+\usepackage{enumitem}
+\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+
+\newcommand{\ecvitem}[2]{{\robotocondensed #2}
+
+}
+
+\newcommand{\skilla}[1]{
+\begin{tabular}{>{\raggedleft}m{1.6cm} l}
+#1&\hspace{-0.5em}{\Large{\color{color1}$\bullet$}{\color{gray!50}$\bullet\bullet$}} \\
+\end{tabular}
+}
+\newcommand{\skillb}[1]{
+\begin{tabular}{>{\raggedleft}m{1.6cm} l}
+#1&\hspace{-0.5em}{\textbf{\Large{\color{color1}$\bullet\bullet$}{\color{gray!50}$\bullet$}}} \\
+\end{tabular}
+}
+\newcommand{\skillc}[1]{
+\begin{tabular}{>{\raggedleft}m{1.6cm} l}
+#1&\hspace{-0.5em}{\textbf{\Large{\color{color1}$\bullet\bullet$}{\color{color1}$\bullet$}}} \\
+\end{tabular}
+}
+
+\newcommand{\cvitem}[2]{{\sl #1} \hfill \textbf{#2}\\}
+\newcommand{\detcvitem}[3]{{\sl #1} \hfill \textbf{#2}\\{\hspace*{1em} \small \robotocondensed #3}\\}
+\newcommand{\project}[5]{{\sl #1} \hfill \textbf{#2}\\ 
+\textbf{Partners:} #3\\
+\textbf{Decription:} \small #4\\
+\textbf{My role:}\vspace{-1em} #5\par}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	NAME AND ADDRESS SECTION
+%----------------------------------------------------------------------------------------
+
+ \hspace{-8.5em} { \Large \robotoslab Giulio Luzzati }% Your name at the top
+ \vspace{-0.5em}
+
+\moveleft\hoffset\vbox{\color{color1}\hrule width\resumewidth height 1pt}\smallskip % Horizontal line after name; adjust line thickness by changing the '1pt'
+\vspace{-2em}
+%----------------------------------------------------------------------------------------
+
+\begin{resume}
+\robotoslab
+
+\section{Personal Information}
+DSP Software Engineer\\
+AKYA ltd., UK\\
+{\robotocondensed 49 Doulton Cl, SN252FT} \\
+%Address: {\robotocondensed Via Gorizia 7, 16147, Genova, Italy}\\
+Phone: {\robotocondensed +44 07397 791131}\\
+e-mail: {\robotocondensed giulio.luzzati@live.it}\\
+LinkedIn: {\url{https://it.linkedin.com/in/giulio-luzzati-9bb79245
+}}\\
+Date of birth: 19/10/1984
+
+
+
+\input{education}
+
+\section{Languages}
+Italian: Native\\
+English: Fluent\\
+%German: Beginner\\
+
+\section{Professional \\and Academic Experience} 
+\textbf{AKYA ltd}, Swindon, United Kingdom\\
+\cvitem{DSP Software Engineer}{Dec 2016 - Current}
+\textbf{University of Genova}, Genova, Italy\\
+\cvitem{Post Doctoral Research Fellow}{Jan 2016 - Nov 2016}
+\cvitem{Ph.D. Student}{Jan 2013 - Dec 2015}
+\cvitem{Research Fellow}{Oct 2012 - Dec 2012}
+ \textbf{National Council of Research (CNR)}, Genova, Italy\\
+{\sl Internship, ISSIA group,  Bachelor Thesis research. } \hfill{\bf  2008}
+
+
+
+\input{skills_knowledge}
+
+\input{personal}
+
+\input{teaching_editorial}
+\pagebreak
+\input{projects}
+
+\section{Post-graduate Formation}
+
+\cvitem{``Statistical Signal Processing for Multimedia Forensics and Security''}{May  2015}
+Lecturer: Prof. Fernando P\'erez-Gonz\'alez\\
+Milan (MI), Italy
+
+\cvitem{``First IEEE SPS Italy Chapter Summer School on Signal Processing''}{Sep 2013}
+Riotorto (LI), Italy
+
+
+\input{publications}
+
+\end{resume}
+\end{document}
