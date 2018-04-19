@@ -36,9 +36,22 @@
 \end{tabular}
 }
 
+\newcommand{\expbox}[1]{\vspace{-1.5em}
+\noindent\begin{tcolorbox}[boxsep=0pt,top=2pt,left=5pt,right=0pt, bottom=2pt,arc=0pt,auto outer arc,colback=color1!15,colframe=color1!10]
+\begin{minipage}[r]{0.95\linewidth} 
+\small
+#1 
+\normalsize
+\end{minipage}
+\end{tcolorbox}
+}
+
 \newcommand{\cvitem}[2]{{\sl #1} \hfill \textbf{#2}\\}
 \newcommand{\detcvitem}[3]{{\sl #1} \hfill \textbf{#2}\\{\hspace*{1em} \small \robotocondensed #3}\\}
 \newcommand{\project}[5]{{\sl #1} \hfill \textbf{#2}\\ 
 \textbf{Partners:} #3\\
 \textbf{Decription:} \small #4\\
 \textbf{My role:}\vspace{-1em} #5\par}
+
+
+\usepackage[most]{tcolorbox}
