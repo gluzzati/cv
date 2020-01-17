@@ -46,6 +46,16 @@
 \end{tcolorbox}
 }
 
+\newcommand{\tinyexpbox}[1]{\vspace{-1.8em}
+\noindent\begin{tcolorbox}[boxsep=0pt,top=3pt,left=8pt,right=0pt, bottom=2pt,arc=0pt,auto outer arc,colback=color1!15,colframe=color1!10]
+\begin{minipage}[r]{0.95\linewidth} 
+\footnotesize
+#1 
+\normalsize
+\end{minipage}
+\end{tcolorbox}
+}
+
 
 \newcommand{\cvitem}[2]{{\sl #1} \hfill \textbf{#2}\\}
 \newcommand{\detcvitem}[3]{{\sl #1} \hfill \textbf{#2}\\{\hspace*{1em} \small \robotocondensed #3}\\}
