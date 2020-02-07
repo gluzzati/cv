@@ -2,3 +2,10 @@
 cv.synctex*
 build
 *.pdf
+*.aux
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+

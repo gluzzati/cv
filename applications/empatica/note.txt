@@ -1,0 +1,3 @@
+- inserire heartrate e accelerometro nel CV!
+- inserire brain stroke detector
+- inserire pubblicazioni
