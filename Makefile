@@ -1,22 +1,29 @@
-all: bending_spoons siemens iit clean
+folders = bending_spoons siemens iit jawbone clean
+
+define compile
+	$(1) applications/$(2)/$(3).tex
+	mv $(3).pdf applications/$(2)/$(3).pdf
+endef
+
+
+all: $(folders) clean
 
 build:
 	xelatex cv.tex
 
 bending_spoons:
-	xelatex applications/bending_spoons/cv.tex
-	xelatex applications/bending_spoons/coverletter.tex
-	mv cv.pdf applications/bending_spoons/
-	mv coverletter.pdf applications/bending_spoons/
+	$(call compile,xelatex,bending_spoons,cv)
+	$(call compile,xelatex,bending_spoons,coverletter)
 
 siemens:
-	xelatex applications/siemens/cv.tex
-	mv cv.pdf applications/siemens/
+	$(call compile,xelatex,siemens,cv)
 
 iit:
-	pdflatex applications/iit/slides.tex
-	pdflatex applications/iit/slides.tex
-	mv slides.pdf applications/iit/slides.pdf
+	$(call compile,pdflatex,iit,slides)
+	$(call compile,pdflatex,iit,slides)
+
+jawbone:
+	$(call compile,xelatex,jawbone,cv)
 
 clean:
 	- rm *.pdf *.aux *.nav *.out *.toc *.vrb *.log *.snm
