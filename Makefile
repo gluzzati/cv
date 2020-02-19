@@ -26,4 +26,4 @@ jawbone:
 	$(call compile,xelatex,jawbone,cv)
 
 clean:
-	- rm *.pdf *.aux *.nav *.out *.toc *.vrb *.log *.snm
+	- rm *.pdf *.aux *.nav *.out *.toc *.vrb *.log *.snm || /bin/true
