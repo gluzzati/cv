@@ -17,6 +17,7 @@ bending_spoons:
 
 siemens:
 	$(call compile,xelatex,siemens,cv)
+	$(call compile,xelatex,siemens,coverletter)
 
 iit:
 	$(call compile,pdflatex,iit,slides)
