@@ -26,5 +26,9 @@ iit:
 jawbone:
 	$(call compile,xelatex,jawbone,cv)
 
+3brain:
+	$(call compile,xelatex,3brain,cv)
+	$(call compile,xelatex,3brain,coverletter)
+
 clean:
 	- rm *.pdf *.aux *.nav *.out *.toc *.vrb *.log *.snm || /bin/true
