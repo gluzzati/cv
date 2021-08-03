@@ -1,0 +1,11 @@
+image: blang/latex:ubuntu
+
+pipelines:
+  default:
+    - step:
+        name: 'build pdfs'
+        deployment: staging
+        script:
+          - make all
+        artifacts:
+          - applications/**
