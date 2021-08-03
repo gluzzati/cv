@@ -6,6 +6,7 @@ pipelines:
         name: 'build pdfs'
         deployment: staging
         script:
+          - bash install_roboto.sh
           - make all
         artifacts:
-          - applications/**
+          - applications/*/*.pdf
