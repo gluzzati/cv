@@ -1,4 +1,4 @@
-folders = bending_spoons siemens iit jawbone 3brain
+folders = bending_spoons siemens iit jawbone 3brain esaote pregmune
 
 define compile
 	$(1) applications/$(2)/$(3).tex
@@ -32,6 +32,9 @@ jawbone:
 	
 esaote:
 	$(call compile,xelatex,esaote,cv)
+
+pregmune:
+	$(call compile,xelatex,pregmune,cv)
 
 clean:
 	- rm *.pdf *.aux *.nav *.out *.toc *.vrb *.log *.snm || /bin/true
