@@ -2,7 +2,8 @@ folders = bending_spoons siemens iit jawbone 3brain esaote pregmune
 
 define compile
 	$(1) applications/$(2)/$(3).tex
-	mv $(3).pdf applications/$(2)/$(3).pdf
+	mkdir -p artifacts/$(2)
+	mv $(3).pdf artifacts/$(2)/$(3).pdf
 endef
 
 
