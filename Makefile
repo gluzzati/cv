@@ -37,5 +37,8 @@ esaote:
 pregmune:
 	$(call compile,xelatex,pregmune,cv)
 
+general2023:
+	$(call compile,xelatex,general2023,cv)
+
 clean:
 	- rm *.pdf *.aux *.nav *.out *.toc *.vrb *.log *.snm || /bin/true
