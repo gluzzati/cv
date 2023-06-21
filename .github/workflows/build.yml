@@ -5,6 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     container: blang/latex:ubuntu
     steps:
+      - run: echo "I'm in $(pwd)"
+      - run: ls
       - run: bash install_roboto.sh
       - run: make all
       - name: Store pdf artifact

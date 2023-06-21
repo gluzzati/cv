@@ -1,15 +1,35 @@
-%.pdf: %.tex
-	xelatex $^;
-	mkdir -p artifacts 
-	cp $@ artifacts/. 
+# define job applications
+folders = apple google
+
+# list .tex files to be compiled within each job application
+apple_files = cv 
+google_files = cv coverletter
 
 
-cv: cv.pdf
+define compile
+	if [ -f job_applications/$(1)/$(2).tex ]; then \
+		xelatex job_applications/$(1)/$(2).tex; \
+		mkdir -p artifacts/$(1); \
+		mv $(2).pdf artifacts/$(1)/$(2).pdf; \
+	fi
+endef
 
-coverletter: coverletter.pdf
+define compile-folder
+	$(foreach file,$($(1)_files),artifacts/$(1)/$(file).pdf)
+endef
 
-all: clean cv coverletter
+all: $(foreach folder,$(folders),$(call compile-folder,$(folder))) clean
 
+artifacts/%.pdf: job_applications/%.tex
+	$(call compile,$(*D),$(*F))
 
 clean:
-	- rm *.pdf *.aux *.nav *.out *.toc *.vrb *.log *.snm || /bin/true
+	- rm *.aux *.nav *.out *.toc *.vrb *.log *.snm || /bin/true
+
+mrclean: clean
+	- rm artifacts/* -rf
+
+.PHONY: $(folders)
+
+$(folders):
+	make $(call compile-folder,$@)
