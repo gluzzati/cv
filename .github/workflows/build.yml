@@ -15,4 +15,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: pdf-artifacts
-          path: artifacts/*.pdf
+          path: artifacts/*/*.pdf
