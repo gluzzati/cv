@@ -2,7 +2,8 @@ name: build
 on: push
 jobs:
   pdf:
-    runs-on:  blang/latex:ubuntu
+    runs-on: ubuntu-latest
+    container: blang/latex:ubuntu
     steps:
       - run: bash install_roboto.sh
       - run: make all
