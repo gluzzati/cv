@@ -1,10 +1,4 @@
-# define job applications
-folders = apple google
-
-# list .tex files to be compiled within each job application
-apple_files = cv 
-google_files = cv coverletter
-
+folders := $(notdir $(wildcard job_applications/*))
 
 define compile
 	if [ -f job_applications/$(1)/$(2).tex ]; then \
@@ -15,7 +9,7 @@ define compile
 endef
 
 define compile-folder
-	$(foreach file,$($(1)_files),artifacts/$(1)/$(file).pdf)
+	$(foreach file,$(notdir $(basename $(wildcard job_applications/$(1)/*.tex))),artifacts/$(1)/$(file).pdf)
 endef
 
 all: $(foreach folder,$(folders),$(call compile-folder,$(folder))) clean
@@ -32,4 +26,5 @@ mrclean: clean
 .PHONY: $(folders)
 
 $(folders):
-	make $(call compile-folder,$@)
+	make $(call compile-folder,$@) clean
+
