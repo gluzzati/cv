@@ -1,0 +1,13 @@
+name: build
+on: push
+jobs:
+  pdf:
+    runs-on:  blang/latex:ubuntu
+    steps:
+      - run: bash install_roboto.sh
+      - run: make all
+      - name: Store pdf artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: pdf-artifacts
+          path: artifacts/*.pdf
