@@ -1,44 +1,30 @@
-folders = bending_spoons siemens iit jawbone 3brain esaote pregmune
+folders := $(notdir $(wildcard applications/*))
 
 define compile
-	$(1) applications/$(2)/$(3).tex
-	mkdir -p artifacts/$(2)
-	mv $(3).pdf artifacts/$(2)/$(3).pdf
+	if [ -f applications/$(1)/$(2).tex ]; then \
+		xelatex applications/$(1)/$(2).tex; \
+		mkdir -p artifacts/$(1); \
+		mv $(2).pdf artifacts/$(1)/$(2).pdf; \
+	fi
 endef
 
+define compile-folder
+	$(foreach file,$(notdir $(basename $(wildcard applications/$(1)/*.tex))),artifacts/$(1)/$(file).pdf)
+endef
 
-all: $(folders) clean
+all: $(foreach folder,$(folders),$(call compile-folder,$(folder))) clean
 
-build:
-	xelatex cv.tex
-
-bending_spoons:
-	$(call compile,xelatex,bending_spoons,cv)
-	$(call compile,xelatex,bending_spoons,coverletter)
-
-siemens:
-	$(call compile,xelatex,siemens,cv)
-	$(call compile,xelatex,siemens,coverletter)
-
-iit:
-	$(call compile,pdflatex,iit,slides)
-	$(call compile,pdflatex,iit,slides)
-
-jawbone:
-	$(call compile,xelatex,jawbone,cv)
-
-3brain:
-	$(call compile,xelatex,3brain,cv)
-	$(call compile,xelatex,3brain,coverletter)
-	
-esaote:
-	$(call compile,xelatex,esaote,cv)
-
-pregmune:
-	$(call compile,xelatex,pregmune,cv)
-
-general_2023:
-	$(call compile,xelatex,general_2023,cv)
+artifacts/%.pdf: applications/%.tex
+	$(call compile,$(*D),$(*F))
 
 clean:
-	- rm *.pdf *.aux *.nav *.out *.toc *.vrb *.log *.snm || /bin/true
+	- rm *.aux *.nav *.out *.toc *.vrb *.log *.snm || /bin/true
+
+mrclean: clean
+	- rm artifacts/* -rf
+
+.PHONY: $(folders)
+
+$(folders):
+	make $(call compile-folder,$@)
+
