@@ -1,0 +1,9 @@
+Hello Merkle!
+I am a software engineer currently based in the UK, seeking to relocate to my home country (Italy) with the right opportunity.
+The main boxes I need ticking in my next job are being able to work mostly (~ 90%) remotely from Italy, being part of a dynamic team where the experience I've accrued over the years is a good match for bringing value to the company, and getting the chance to solve interesting problems.
+I believe my profile can be a good fit for several points in the requirements list, in particular I think I have a good intuitional understanding of topics like clustering/classification/regression,and a good proficiency with Python and its prominent libraries.
+Still with respect to the requirement listed in your job post, my weakest fit is probably SQL - whilst I did use it in a few projects, I wouldn't rate my skills above working knowledge.
+I look forward to get the chance to get to know each other, should you find my profile of interest.
+
+Thank you in advance,
+G

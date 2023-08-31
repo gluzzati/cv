@@ -1,0 +1,5 @@
+name		|	date	|	link
+=========================================================================================
+merkle 		|	30/8	| https://www.linkedin.com/jobs/view/3687633732/
+Tiko		|	31/8	| https://www.linkedin.com/jobs/view/3705951418/
+Unobravo 	| 	31/8 	| https://www.linkedin.com/jobs/view/3706414619
