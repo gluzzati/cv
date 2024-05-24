@@ -1,0 +1,14 @@
+stages:
+  - build
+
+build:
+  stage: build
+  image: blang/latex:ubuntu
+  script:
+    - bash install_roboto.sh
+    - make all
+    - ls applications
+    - ls applications/general_2024
+  artifacts:
+    paths:
+      - artifacts/*/*.pdf
