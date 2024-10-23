@@ -1,20 +1,21 @@
 folders := $(notdir $(wildcard applications/*))
+SHA_SUFFIX := $(if $(CI_COMMIT_SHORT_SHA),_$(CI_COMMIT_SHORT_SHA),)
 
 define compile
 	if [ -f applications/$(1)/$(2).tex ]; then \
 		xelatex applications/$(1)/$(2).tex; \
 		mkdir -p artifacts/$(1); \
-		mv $(2).pdf artifacts/$(1)/$(2).pdf; \
+		mv $(2).pdf artifacts/$(1)/$(2)$(SHA_SUFFIX).pdf; \
 	fi
 endef
 
 define compile-folder
-	$(foreach file,$(notdir $(basename $(wildcard applications/$(1)/*.tex))),artifacts/$(1)/$(file).pdf)
+$(foreach file,$(notdir $(basename $(wildcard applications/$(1)/*.tex))),artifacts/$(1)/$(file)$(SHA_SUFFIX).pdf)
 endef
 
 all: $(foreach folder,$(folders),$(call compile-folder,$(folder))) clean
 
-artifacts/%.pdf: applications/%.tex
+artifacts/%$(SHA_SUFFIX).pdf: applications/%.tex
 	$(call compile,$(*D),$(*F))
 
 clean:
@@ -28,3 +29,4 @@ mrclean: clean
 $(folders):
 	make $(call compile-folder,$@)
 
+	
