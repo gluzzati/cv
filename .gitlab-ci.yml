@@ -3,8 +3,10 @@ stages:
 
 build:
   stage: build
-  image: blang/latex:ubuntu
+  image: moss/xelatex
   script:
+    - apt update
+    - apt install -y texlive-fonts-extra fonts-font-awesome
     - bash install_roboto.sh
     - make all
   artifacts:
