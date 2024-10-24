@@ -1,5 +1,5 @@
 \input{header}
-
+\newcommand{\printversion}{\color{gray!10}\cvversion}  % Light gray, very small text
 \newcommand\keyword[2][]{\tikz[overlay]\node[fill=color1!10,inner sep=1.8pt, anchor=text, rectangle, rounded corners=1.2mm, #1] {#2};\phantom{#2}}
 
 \begin{document}
@@ -128,7 +128,7 @@ At AKYA I contributed as a software engineer to develop a framework that synthes
 \vspace{-0.5em}
 \footnotesize
 The source to this CV is open and available here: \url{https://github.com/gluzzati/cv}.\\
-Feel free to re-use it if you liked it! 
+Feel free to re-use it if you liked it!  \hfill\printversion
 
 \end{resume}
 \end{document}
