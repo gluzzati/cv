@@ -7,12 +7,12 @@ jobs:
       image: blang/latex:ubuntu
       options: --user root
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          # This tells checkout action to use simple git clone instead of its Node.js features
-          fetch-depth: 1
-          persist-credentials: false
+      - name: Manual checkout
+        run: |
+          apt-get update
+          apt-get install -y git
+          git clone --depth 1 https://github.com/${{ github.repository }}.git .
+          git checkout ${{ github.sha }}
 
       - run: echo "I'm in $(pwd)"
       - run: ls
