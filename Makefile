@@ -2,9 +2,10 @@ folders := $(notdir $(wildcard job_applications/*))
 
 define compile
 	if [ -f job_applications/$(1)/$(2).tex ]; then \
-		xelatex job_applications/$(1)/$(2).tex; \
+		xelatex "\newcommand{\cvversion}{$(GITHUB_SHA_SHORT)} \input{job_applications/$(1)/$(2).tex}"; \
 		mkdir -p artifacts/$(1); \
 		mv $(2).pdf artifacts/$(1)/$(2).pdf; \
+		ls artifacts; \
 	fi
 endef
 

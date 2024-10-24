@@ -3,16 +3,15 @@ on: push
 jobs:
   pdf:
     runs-on: ubuntu-latest
-    container: blang/latex:ubuntu
+    container: moss/xelatex
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      - run: echo "I'm in $(pwd)"
-      - run: ls
+        uses: actions/checkout@v4
+      - run: apt update && apt install -y texlive-fonts-extra fonts-font-awesome
       - run: bash install_roboto.sh
       - run: make all
       - name: Store pdf artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pdf-artifacts
           path: artifacts/*/*.pdf
