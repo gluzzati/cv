@@ -3,37 +3,16 @@ on: push
 jobs:
   pdf:
     runs-on: ubuntu-latest
-    container:
-      image: blang/latex:ubuntu
-      options: --user root
+    container: blang/latex:ubuntu
     steps:
-      - name: Manual checkout
-        run: |
-          apt-get update
-          apt-get install -y git
-          # Create and move to a temporary directory
-          mkdir -p /tmp/repo
-          cd /tmp/repo
-          # Clone the repository
-          git clone https://github.com/${{ github.repository }}.git .
-          # If we're on a PR, fetch the PR ref
-          if [ ! -z "${{ github.event.pull_request.number }}" ]; then
-            git fetch origin pull/${{ github.event.pull_request.number }}/head:pr-branch
-            git checkout pr-branch
-          else
-            git checkout ${{ github.ref_name }}
-          fi
-          # Copy everything back to workspace
-          cp -r . $GITHUB_WORKSPACE/
-          cd $GITHUB_WORKSPACE
-
+      - name: Checkout
+        uses: actions/checkout@v4
       - run: echo "I'm in $(pwd)"
       - run: ls
       - run: bash install_roboto.sh
       - run: make all
-
       - name: Store pdf artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pdf-artifacts
           path: artifacts/*/*.pdf
