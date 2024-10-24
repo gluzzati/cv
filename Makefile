@@ -3,7 +3,7 @@ SHA_SUFFIX := $(if $(CI_COMMIT_SHORT_SHA),_$(CI_COMMIT_SHORT_SHA),)
 
 define compile
 	if [ -f applications/$(1)/$(2).tex ]; then \
-		xelatex applications/$(1)/$(2).tex; \
+		xelatex "\newcommand{\cvversion}{$(CI_COMMIT_SHORT_SHA)} \input{applications/$(1)/$(2).tex}"; \
 		mkdir -p artifacts/$(1); \
 		mv $(2).pdf artifacts/$(1)/$(2)$(SHA_SUFFIX).pdf; \
 	fi
