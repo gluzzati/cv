@@ -32,6 +32,22 @@ jobs:
       - run: bash install_roboto.sh
       - run: make all
 
+      - name: Cache pdf artifacts
+        uses: actions/cache@v3
+        with:
+          path: artifacts/*/*.pdf
+          key: ${{ runner.os }}-pdf-${{ github.sha }}
+
+  process-pdf:
+    runs-on: ubuntu-latest
+    needs: pdf
+    steps:
+      - name: Restore pdf artifacts
+        uses: actions/cache@v3
+        with:
+          path: artifacts/*/*.pdf
+          key: ${{ runner.os }}-pdf-${{ github.sha }}
+
       - name: Store pdf artifact
         uses: actions/upload-artifact@v4
         with:
