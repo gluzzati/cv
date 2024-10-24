@@ -3,14 +3,22 @@ on: push
 jobs:
   pdf:
     runs-on: ubuntu-latest
-    container: blang/latex:ubuntu
+    container:
+      image: blang/latex:ubuntu
+      options: --user root
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          # This tells checkout action to use simple git clone instead of its Node.js features
+          fetch-depth: 1
+          persist-credentials: false
+
       - run: echo "I'm in $(pwd)"
       - run: ls
       - run: bash install_roboto.sh
       - run: make all
+
       - name: Store pdf artifact
         uses: actions/upload-artifact@v3
         with:
