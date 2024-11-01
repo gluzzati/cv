@@ -1,0 +1,156 @@
+\documentclass[mm, 10pt]{res} % Use the res.cls style, the font size can be changed to 11pt or 12pt here
+\usepackage[T1]{fontenc}   
+\usepackage[left=5mm, right=20mm, top=10mm ,bottom=10mm]{geometry}
+%\usepackage{helvet} % Default font is the helvetica postscript font
+\usepackage{array}
+\usepackage{hyperref}
+
+
+%\usepackage{newcent} % To change the default font to the new century schoolbook postscript font uncomment this line and comment the one above
+\usepackage[rm,sfdefault]{roboto}
+\usepackage{xcolor}
+
+\setlength{\textwidth}{5.85in} % Text width of the document
+\definecolor{color1}{rgb}{0.4,0.5,0.3}% green
+
+\usepackage{enumitem}
+\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+
+\newcommand{\ecvitem}[2]{{\robotocondensed #2}
+
+}
+
+\newcommand{\skilla}[1]{
+\begin{tabular}{>{\raggedleft}m{1.6cm} l}
+#1&\hspace{-0.5em}{\Large{\color{color1}$\bullet$}{\color{gray!50}$\bullet\bullet$}} \\
+\end{tabular}
+}
+\newcommand{\skillb}[1]{
+\begin{tabular}{>{\raggedleft}m{1.6cm} l}
+#1&\hspace{-0.5em}{\textbf{\Large{\color{color1}$\bullet\bullet$}{\color{gray!50}$\bullet$}}} \\
+\end{tabular}
+}
+\newcommand{\skillc}[1]{
+\begin{tabular}{>{\raggedleft}m{1.6cm} l}
+#1&\hspace{-0.5em}{\textbf{\Large{\color{color1}$\bullet\bullet$}{\color{color1}$\bullet$}}} \\
+\end{tabular}
+}
+
+\newcommand{\expbox}[1]{\vspace{-1.8em}
+\noindent\begin{tcolorbox}[boxsep=0pt,top=3pt,left=8pt,right=0pt, bottom=2pt,arc=0pt,auto outer arc,colback=color1!15,colframe=color1!10]
+\begin{minipage}[r]{0.95\linewidth} 
+\small
+#1 
+\normalsize
+\end{minipage}
+\end{tcolorbox}
+}
+
+\newcommand{\tinyexpbox}[1]{\vspace{-1.8em}
+\noindent\begin{tcolorbox}[boxsep=0pt,top=3pt,left=8pt,right=0pt, bottom=2pt,arc=0pt,auto outer arc,colback=color1!15,colframe=color1!10]
+\begin{minipage}[r]{0.95\linewidth} 
+\footnotesize
+#1 
+\normalsize
+\end{minipage}
+\end{tcolorbox}
+}
+
+\newcommand{\cvitem}[2]{{\sl #1} \hfill \textbf{#2}\\}
+\newcommand{\detcvitem}[3]{{\sl #1} \hfill \textbf{#2}\\{\hspace*{1em} \small \robotocondensed #3}\\}
+\newcommand{\project}[5]{{\sl #1} \hfill \textbf{#2}\\ 
+\textbf{Partners:} #3\\
+\textbf{Decription:} \small #4\\
+\textbf{My role:}\vspace{-1em} #5\par}
+
+
+\newlength{\seplinewidth}
+\newlength{\seplinesep}
+\setlength{\seplinewidth}{1mm}
+\setlength{\seplinesep}{2mm}
+\newcommand*{\sepline}{%
+  \par
+  \vspace{\dimexpr\seplinesep+.5\parskip}%
+  \cleaders\vbox{%
+    \begingroup % because of color
+      \color{color1}%
+      \hrule width\linewidth height\seplinewidth
+    \endgroup
+  }\vskip\seplinewidth
+  \vspace{\dimexpr\seplinesep-.5\parskip}%
+}
+
+
+\usepackage[most]{tcolorbox}
+
+\usepackage{fontawesome}
+\usepackage[document]{ragged2e}
+
+
+
+\hyphenation{
+  microservice
+  visualization
+  systems
+  Python
+  FastAPI
+  performance
+  leadership
+}
+
+\begin{document}
+\sloppy
+
+\begin{resume}
+\robotoslab
+{ \color{color1} \Large \robotoslab Giulio Luzzati}% Your name at the top
+\vspace{2em}
+\sepline
+
+\raggedleft
+{\robotocondensed 
+{\color{color1}\faMapMarker}~:~1b Mill Road, Haddenham, Ely, United Kingdom} \\
+{\color{color1}\faPhone}~:~{\robotocondensed +44 07397 791131}\\
+{\color{color1}\faEnvelope}~:~{\robotocondensed giulio.luzzati@live.it}\\
+{\color{color1}\faLinkedinSquare}~:~{\url{https://it.linkedin.com/in/giulio-luzzati-9bb79245}}\\
+
+\justify
+
+\vspace{2em}
+
+\sepline
+
+\vspace{5em}
+
+Dear Paebbl Team,
+\vspace{3em}
+
+
+I am writing to express my interest in the Data Scientist position at Paebbl.
+
+My background combines expertise in signal processing and computer science with leadership experience in agile environments. 
+
+As the DSP Team Leader at Cambridge Touch Technologies, I've developed extensive experience in extracting meaningful insights from complex, noisy data systems. My work has focused on building scalable data pipelines and automated frameworks to transform raw sensor data into actionable insights.
+
+Some key achievements I believe relate to your requirements include:
+
+\begin{itemize}
+\item Designing and implementing a microservice ecosystem using FastAPI, integrating data sources with relational databases, heterogeneous processing blocks and web interfaces
+\item Leading cross-functional teams to develop and deploy data processing algorithms, ensuring successful technology evolution through data-driven approaches
+\item Creating visualization tools and dashboards that translate complex data analysis into clear insights for stakeholders
+\item Developing experimental machine learning approaches using PyTorch, including extensive data engineering to create robust, labeled datasets from raw data
+\end{itemize}
+
+What excites me about this job advert is the opportunity to pivot towards the machine learning domain, with the flexibility of a remote first environment, all while contributing to one of the biggest challenges of our time!
+
+\vspace{2em}
+I look forward to discussing how my experience could contribute to Paebbl!
+
+Best regards,
+\vspace{3em}
+
+Giulio
+
+
+\end{resume}
+\end{document}
