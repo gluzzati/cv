@@ -185,7 +185,7 @@
 #let experience_element(exp, colors) = {
   text(colors.primary, size: 10pt, weight: "semibold", exp.company)
   h(1pt)
-  text(colors.primary.lighten(30%), weight: "extralight", size: 10pt, "|"+h(1pt)+exp.location, tracking: -0.25pt)
+  text(colors.primary.lighten(30%), weight: "light", size: 10pt, "|"+h(1pt)+exp.location, tracking: -0.25pt)
   v(-2pt)
   
   block(
