@@ -20,6 +20,11 @@ compile_cv:
     - mv /tmp/typst-x86_64-unknown-linux-musl/typst /usr/local/bin/
     - chmod +x /usr/local/bin/typst
     
+        # Setup fonts from repository
+    - mkdir -p ~/.fonts/
+    - cp fonts/* ~/.fonts/ || true
+    - fc-cache -f -v
+
     # Setup fonts from repository
     - fc-cache -f -v
     
