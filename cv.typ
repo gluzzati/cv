@@ -438,7 +438,7 @@ name: "Giulio Luzzati",
     (
 company: "5G Innovation Centre",
       location: "Guildford, UK",
-      description: "The 5GIC is a research centre within the University of Surrey, with one of the largest 5G testbeds in the UK, and research and standardization activity in close partnership with some of the largest players in the field.",
+      description: "The 5GIC is a research centre within the University of Surrey, with one of the largest 5G testbeds in the UK, and research and standardisation activity in close partnership with some of the largest players in the field.",
       roles: (
         (
           title: "Research Software Engineer",
