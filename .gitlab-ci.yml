@@ -1,4 +1,4 @@
-image: ghcr.io/typst/typst:latest
+image: debian:bullseye-slim
 
 stages:
   - build
@@ -7,13 +7,24 @@ stages:
 variables:
   CV_SOURCE: cv.typ
   OUTPUT_FILE: cv.pdf
+  TYPST_VERSION: "v0.10.0"  # Adjust this to your preferred Typst version
 
 compile_cv:
   stage: build
   script:
+    # Install minimal dependencies
+    - apt-get update && apt-get install -y curl xz-utils
+    
+    # Install Typst
+    - curl -L https://github.com/typst/typst/releases/download/${TYPST_VERSION}/typst-x86_64-unknown-linux-musl.tar.xz | tar -xJf - -C /tmp
+    - mv /tmp/typst-x86_64-unknown-linux-musl/typst /usr/local/bin/
+    - chmod +x /usr/local/bin/typst
+    
+    # Check if Typst is installed correctly
+    - typst --version
+    
+    # Compile the CV
     - echo "Compiling CV with Typst..."
-    # Avoid using colons in echo statements
-    - echo "Font files already in repository"
     - ls -la *.otf *.ttf || echo "Font listing for verification"
     - typst compile $CV_SOURCE $OUTPUT_FILE
     - echo "CV compilation complete"
@@ -28,7 +39,6 @@ pages:
   script:
     - mkdir -p public
     - cp $OUTPUT_FILE public/
-    # Avoid using colons in echo statements
     - echo "PDF available at ${CI_PAGES_URL}/${OUTPUT_FILE}"
   artifacts:
     paths:
