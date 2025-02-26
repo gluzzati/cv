@@ -12,10 +12,11 @@ compile_cv:
   stage: build
   script:
     - echo "Compiling CV with Typst..."
-    - echo "Font files already included in the repository"
-    - ls -la *.otf *.ttf || echo "Note: Font listing is just for verification"
+    # Avoid using colons in echo statements
+    - echo "Font files already in repository"
+    - ls -la *.otf *.ttf || echo "Font listing for verification"
     - typst compile $CV_SOURCE $OUTPUT_FILE
-    - echo "CV compilation complete!"
+    - echo "CV compilation complete"
   artifacts:
     paths:
       - $OUTPUT_FILE
@@ -27,7 +28,8 @@ pages:
   script:
     - mkdir -p public
     - cp $OUTPUT_FILE public/
-    - echo "PDF available at: ${CI_PAGES_URL}/${OUTPUT_FILE}"
+    # Avoid using colons in echo statements
+    - echo "PDF available at ${CI_PAGES_URL}/${OUTPUT_FILE}"
   artifacts:
     paths:
       - public
