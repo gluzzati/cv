@@ -183,9 +183,9 @@
 
 // Experience element component
 #let experience_element(exp, colors) = {
-  text(colors.primary, size: 10pt, weight: "semibold", exp.company + ",")
+  text(colors.primary, size: 10pt, weight: "semibold", exp.company)
   h(1pt)
-  text(colors.primary.lighten(25%), weight: "extralight", size: 10pt, exp.location, tracking: -0.25pt)
+  text(colors.primary.lighten(30%), weight: "extralight", size: 10pt, "|"+h(1pt)+exp.location, tracking: -0.25pt)
   v(-2pt)
   
   block(
@@ -395,7 +395,7 @@ name: "Giulio Luzzati",
       (name: "C++", level: 1),
       (name: "JS", level: 1),
     ),
-    technologies: ("FastAPI", "PyTorch", "Docker", "CI/CD", "Microservices", "Data Visualization"),
+    technologies: ("FastAPI", "PyTorch", "Docker", "CI/CD", "Microservices"),
     domains: ("Signal Processing", "Algorithms", "Data Pipelines", "Machine Learning", "Embedded Systems", "Automated Analytics"),
   ),
   experience: (
@@ -451,7 +451,7 @@ company: "5G Innovation Centre",
       ),
     ),
     ( 
-      company: "Akya, ltd.",
+      company: "Akya",
       location: "Swindon, UK",
       description: "AKYA's core business was a novel \"dynamically reconfigurable logic\" approach to hardware design, for low power/low cost applications, unlike e.g. FPGA, providing \"just enough\" reconfigurability to meet design requirements.",
       roles: (
