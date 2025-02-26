@@ -21,22 +21,11 @@ compile_cv:
     - chmod +x /usr/local/bin/typst
     
     # Setup fonts from repository
-    - mkdir -p ~/.fonts/
-    - cp *.otf ~/.fonts/ || true
-    - cp *.ttf ~/.fonts/ || true
     - fc-cache -f -v
     
     # List available fonts for debugging
     - echo "Available fonts:"
     - fc-list | grep -i "awesome\\|roboto"
-    
-    # Download complete Roboto Slab font family
-    - apt-get install -y wget
-    - mkdir -p ~/.fonts/roboto-slab
-    - for weight in Regular Bold Light Thin Medium SemiBold ExtraLight Black; do
-        wget -q "https://fonts.gstatic.com/s/robotoslab/v25/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvj0_Yk${weight}aG5iddG-1A.ttf" -O ~/.fonts/roboto-slab/RobotoSlab-${weight}.ttf || echo "Failed to download ${weight}";
-      done
-    - fc-cache -f -v
     
     # Show Typst version
     - typst --version
