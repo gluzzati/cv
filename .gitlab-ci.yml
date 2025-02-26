@@ -1,0 +1,35 @@
+image: ghcr.io/typst/typst:latest
+
+stages:
+  - build
+  - deploy
+
+variables:
+  CV_SOURCE: cv.typ
+  OUTPUT_FILE: cv.pdf
+
+compile_cv:
+  stage: build
+  script:
+    - echo "Compiling CV with Typst..."
+    - echo "Font files already included in the repository"
+    - ls -la *.otf *.ttf || echo "Note: Font listing is just for verification"
+    - typst compile $CV_SOURCE $OUTPUT_FILE
+    - echo "CV compilation complete!"
+  artifacts:
+    paths:
+      - $OUTPUT_FILE
+    expire_in: 1 week
+
+# Deploy to GitLab Pages if desired
+pages:
+  stage: deploy
+  script:
+    - mkdir -p public
+    - cp $OUTPUT_FILE public/
+    - echo "PDF available at: ${CI_PAGES_URL}/${OUTPUT_FILE}"
+  artifacts:
+    paths:
+      - public
+  only:
+    - main  # Only run on the main branch
