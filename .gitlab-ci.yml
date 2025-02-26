@@ -7,7 +7,7 @@ stages:
 variables:
   CV_SOURCE: cv.typ
   OUTPUT_FILE: cv.pdf
-  TYPST_VERSION: "v0.13.0"  # Adjust this to your preferred Typst version
+  TYPST_VERSION: "v0.10.0"  # Adjust this to your preferred Typst version
 
 compile_cv:
   stage: build
@@ -29,14 +29,14 @@ compile_cv:
     # List available fonts for debugging
     - echo "Available fonts:"
     - fc-list | grep -i "awesome\\|roboto"
-
-      # Download Roboto Slab if not already in repo
-    - if [ ! -f ~/.fonts/RobotoSlab-Regular.ttf ]; then
-        apt-get install -y wget;
-        wget -q https://fonts.gstatic.com/s/robotoslab/v24/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjojISWaG5iddG-1A.ttf -O ~/.fonts/RobotoSlab-Regular.ttf;
-        wget -q https://fonts.gstatic.com/s/robotoslab/v24/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjovoSWaG5iddG-1A.ttf -O ~/.fonts/RobotoSlab-Bold.ttf;
-        fc-cache -f -v;
-      fi
+    
+    # Download complete Roboto Slab font family
+    - apt-get install -y wget
+    - mkdir -p ~/.fonts/roboto-slab
+    - for weight in Regular Bold Light Thin Medium SemiBold ExtraLight Black; do
+        wget -q "https://fonts.gstatic.com/s/robotoslab/v25/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvj0_Yk${weight}aG5iddG-1A.ttf" -O ~/.fonts/roboto-slab/RobotoSlab-${weight}.ttf || echo "Failed to download ${weight}";
+      done
+    - fc-cache -f -v
     
     # Show Typst version
     - typst --version
