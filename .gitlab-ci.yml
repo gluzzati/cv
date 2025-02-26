@@ -7,13 +7,19 @@ stages:
 variables:
   CV_SOURCE: cv.typ
   OUTPUT_FILE: cv.pdf
-  TYPST_VERSION: "v0.13.0"  # Adjust this to your preferred Typst version
+  TYPST_VERSION: "v0.10.0"  # Adjust this to your preferred Typst version
 
 compile_cv:
   stage: build
   script:
-    # Install minimal dependencies
-    - apt-get update && apt-get install -y curl xz-utils
+    # Install minimal dependencies and fonts
+    - apt-get update && apt-get install -y curl xz-utils fonts-roboto fontconfig
+    
+    # Install Google Fonts Roboto Slab
+    - mkdir -p /usr/local/share/fonts/roboto-slab
+    - curl -L "https://fonts.google.com/download?family=Roboto%20Slab" -o /tmp/roboto-slab.zip
+    - apt-get install -y unzip
+    - unzip -o /tmp/roboto-slab.zip -d /usr/local/share/fonts/roboto-slab
     
     # Install Typst
     - curl -L https://github.com/typst/typst/releases/download/${TYPST_VERSION}/typst-x86_64-unknown-linux-musl.tar.xz | tar -xJf - -C /tmp
@@ -22,6 +28,11 @@ compile_cv:
     
     # Check if Typst is installed correctly
     - typst --version
+    
+    # Update font cache and verify fonts
+    - fc-cache -f -v
+    - echo "Available fonts:"
+    - fc-list | grep -i "roboto\\|awesome"
     
     # Compile the CV
     - echo "Compiling CV with Typst..."
