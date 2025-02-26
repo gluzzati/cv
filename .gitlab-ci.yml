@@ -7,7 +7,7 @@ stages:
 variables:
   CV_SOURCE: cv.typ
   OUTPUT_FILE: cv.pdf
-  TYPST_VERSION: "v0.10.0"  # Adjust this to your preferred Typst version
+  TYPST_VERSION: "v0.13.0"  # Adjust this to your preferred Typst version
 
 compile_cv:
   stage: build
