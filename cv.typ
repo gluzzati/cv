@@ -385,7 +385,7 @@ name: "Giulio Luzzati",
   linkedin: "/in/giulio-luzzati-9bb79245",
   github: "giulioluzzati",
   phone: "+447397791131", 
-  summary: "Senior engineering lead with extensive expertise in developing automated systems that extract actionable insights from complex signal data. I architect end-to-end solutions that bridge algorithm research with production-ready implementations, creating reproducible workflows and metrics that drive measurable improvements in sensor technologies. My approach combines signal processing expertise with modern data pipeline automation, enabling cross-functional teams to make data-driven decisions and create tools that empower engineers, building scalable frameworks for experimentation.",
+  summary: "Senior engineering lead with extensive expertise in developing systems that make sense of data. I architect end-to-end solutions that bridge algorithm research with production-ready implementations, creating reproducible workflows and metrics that drive measurable improvements in sensor technologies. My approach combines signal processing expertise with modern data pipeline automation, enabling cross-functional teams to make data-driven decisions and create tools that empower engineers, building scalable frameworks for experimentation.",
   skills: (
     programming: (
       (name: "Python", level: 3),
@@ -402,7 +402,7 @@ name: "Giulio Luzzati",
     (
       company: "Cambridge Touch Technologies",
       location: "Cambridge, UK",
-      description: "CTT is a tech scale-up developing cost-effective innovative touch-pressure sensing for display and non-display surfaces.",
+      description: "CTT is a tech scale-up developing innovative cost-effective  touch-pressure sensing for display and non-display surfaces.",
       roles: (
         (
           title: "DSP Team Leader",
@@ -411,7 +411,7 @@ name: "Giulio Luzzati",
             "Lead cross-functional collaboration between algorithm, hardware, and firmware teams, establishing data-driven decision processes",
             "Mentor engineering team members while fostering technical autonomy and knowledge sharing",
             "Architected and implemented a comprehensive FastAPI-based experiment framework that enabled reproducible, version-controlled signal analysis across multiple sensor generations",
-            "Designed automated metrics and data pipelines that significantly improved and scaled up sensor performance evaluation, providing quantifiable insights to advance the core technology and support a better informed sensor design process",
+            "Designed automated metrics and data pipelines that significantly improved and scaled up sensor tuning and characterisation, providing quality assurance and quantifiable insights to advance the core technology and support a better informed sensor design process",
 
           ),
         ),
@@ -419,7 +419,7 @@ name: "Giulio Luzzati",
           title: "Principal DSP Engineer",
           period: "Jul 2021 - Dec 2021",
           achievements: (
-            "Created real-time Python visualization tools using Arcade library to demonstrate algorithms",
+            "Created real-time Python demos and visualization tools using Arcade library to demonstrate algorithms and technology potential",
             "Developed core DSP libraries with robust configuration management for diverse sensor types",
             "Automated the build (via CI/CD) and deployment of fimrware and device provisioning packages (STM32 MCUs) with built-in validation and flashing tools",
             "Created up an ARM MCU simulation environment, harnessing ARM's cycle accurate models to streamline the experimenting and profiling of routines, for M0, M32, M4 and M55 platforms"
@@ -431,7 +431,6 @@ name: "Giulio Luzzati",
           achievements: (
             "Designed (Matlab) and implemented (embedded C) algorithms for real-time signal processing on resource-constrained devices",
             "Established comprehensive CI/CD infrastructure using GitLab and Docker, improving code quality and deployment efficiency",
-            "Built data analysis tools for extracting insights from sensor data, directly supporting iterative hardware improvements",
           ),
         ),
       ),
