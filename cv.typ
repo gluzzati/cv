@@ -421,7 +421,7 @@ name: "Giulio Luzzati",
           achievements: (
             "Created real-time Python demos and visualization tools using Arcade library to demonstrate algorithms and technology potential",
             "Developed core DSP libraries with robust configuration management for diverse sensor types",
-            "Automated the build (via CI/CD) and deployment of fimrware and device provisioning packages (STM32 MCUs) with built-in validation and flashing tools",
+            "Automated the build (via CI/CD) and deployment of firmware and device provisioning packages (STM32 MCUs) with built-in validation and flashing tools",
             "Created up an ARM MCU simulation environment, harnessing ARM's cycle accurate models to streamline the experimenting and profiling of routines, for M0, M32, M4 and M55 platforms"
           ),
         ),
