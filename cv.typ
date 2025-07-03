@@ -42,12 +42,12 @@
 
 // Indented text block component
 #let indented_block(content, colors) = {
-  set par(justify: true)
+  set par(justify: false, leading: 0.65em)
   grid(
     columns: 2,
     h(3pt),
     text(
-      // hyphenate: false,
+      hyphenate: false,
       colors.primary,
       size: 10pt,
       content
@@ -62,7 +62,7 @@
     size: 12pt,
     weight: "bold",
     heading + ":",
-    tracking: -0.55pt
+    tracking: -0.25pt
   )
   v(-5pt)
 }
@@ -206,7 +206,22 @@
       for role in exp.roles {
         grid(
           columns: (1fr, auto),
-          text(colors.black, size: 9pt, weight: "semibold", role.title),
+          block({
+            text(colors.black, size: 9pt, weight: "semibold", role.title)
+            if "keywords" in role {
+              h(6pt)
+              for (i, keyword) in role.keywords.enumerate() {
+                if i > 0 { h(3pt) }
+                box(
+                  fill: colors.secondary.lighten(85%),
+                  stroke: (paint: colors.secondary.lighten(70%), thickness: 0.5pt),
+                  radius: 8pt,
+                  inset: (x: 4pt, y: 1pt),
+                  text(colors.secondary.darken(10%), size: 6pt, keyword, weight: "medium")
+                )
+              }
+            }
+          }),
           text(colors.black, size: 8pt, role.period, weight: "semibold")
         )
         v(-3pt)
@@ -267,7 +282,7 @@
 
   // Layout
   grid(
-    columns: (35%, 65%),
+    columns: (40%, 60%),
     gutter: 5mm,
     {
       // Sidebar content
@@ -376,130 +391,31 @@
   )
 }
 
-// Use the template with your data
-#cv(
-name: "Giulio Luzzati",
-  title: "Ph.D.",
-  location: "Cambridge, UK",
-  email: "giulio.luzzati@live.it",
-  linkedin: "/in/giulio-luzzati-9bb79245",
-  github: "giulioluzzati",
-  phone: "+447397791131", 
-  summary: "Senior engineering lead with extensive expertise in developing systems that make sense of data. I architect end-to-end solutions that bridge algorithm research with production-ready implementations, creating reproducible workflows and metrics that drive measurable improvements in sensor technologies. My approach combines signal processing expertise with modern data pipeline automation, enabling cross-functional teams to make data-driven decisions and create tools that empower engineers, building scalable frameworks for experimentation.",
-  skills: (
-    programming: (
-      (name: "Python", level: 3),
-      (name: "MATLAB", level: 3),
-      (name: "C", level: 3),
-      (name: "Shell", level: 2),
-      (name: "C++", level: 1),
-      (name: "JS", level: 1),
-    ),
-    technologies: ("FastAPI", "PyTorch", "Docker", "CI/CD", "Microservices"),
-    domains: ("Signal Processing", "Algorithms", "Data Pipelines", "Machine Learning", "Embedded Systems", "Automated Analytics"),
-  ),
-  experience: (
-    (
-      company: "Cambridge Touch Technologies",
-      location: "Cambridge, UK",
-      description: "CTT is a tech scale-up developing innovative cost-effective  touch-pressure sensing for display and non-display surfaces.",
-      roles: (
-        (
-          title: "DSP Team Leader",
-          period: "Jan 2022 - Present",
-          achievements: (
-            "Lead cross-functional collaboration between algorithm, hardware, and firmware teams, establishing data-driven decision processes",
-            "Mentor engineering team members while fostering technical autonomy and knowledge sharing",
-            "Architected and implemented a comprehensive FastAPI-based experiment framework that enabled reproducible, version-controlled signal analysis across multiple sensor generations",
-            "Designed automated metrics and data pipelines that significantly improved and scaled up sensor tuning and characterisation, providing quality assurance and quantifiable insights to advance the core technology and support a better informed sensor design process",
+// Load CV data from JSON file
+#let cv_data = json("cv_data.json")
 
-          ),
-        ),
-        (
-          title: "Principal DSP Engineer",
-          period: "Jul 2021 - Dec 2021",
-          achievements: (
-            "Created real-time Python demos and visualization tools using Arcade library to demonstrate algorithms and technology potential",
-            "Developed core DSP libraries with robust configuration management for diverse sensor types",
-            "Automated the build (via CI/CD) and deployment of firmware and device provisioning packages (STM32 MCUs) with built-in validation and flashing tools",
-            "Created up an ARM MCU simulation environment, harnessing ARM's cycle accurate models to streamline the experimenting and profiling of routines, for M0, M32, M4 and M55 platforms"
-          ),
-        ),
-        (
-          title: "Senior DSP Engineer",
-          period: "Oct 2018 - Jun 2021",
-          achievements: (
-            "Designed (Matlab) and implemented (embedded C) algorithms for real-time signal processing on resource-constrained devices",
-            "Established comprehensive CI/CD infrastructure using GitLab and Docker, improving code quality and deployment efficiency",
-          ),
-        ),
-      ),
-    ),
-    (
-company: "5G Innovation Centre",
-      location: "Guildford, UK",
-      description: "The 5GIC is a research centre within the University of Surrey, with one of the largest 5G testbeds in the UK, and research and standardisation activity in close partnership with some of the largest players in the field.",
-      roles: (
-        (
-          title: "Research Software Engineer",
-          period: "Oct 2017 - Oct 2018",
-          achievements: (
-            "At the 5GIC I was part of the core network team. My contribution as a software engineer was to extend the core network code base to enable demonstrating proof of concepts for 5G features.",
-          )
-        ),
-      ),
-    ),
-    ( 
-      company: "Akya",
-      location: "Swindon, UK",
-      description: "AKYA's core business was a novel \"dynamically reconfigurable logic\" approach to hardware design, for low power/low cost applications, unlike e.g. FPGA, providing \"just enough\" reconfigurability to meet design requirements.",
-      roles: (
-        (
-          title: "DSP Software Engineer",
-          period: "Oct 2017 - Oct 2018",
-          achievements: (
-            "At AKYA I contributed as a software engineer to the codebase of a framework to synthesise logic from a high-level description of the hardware. My role was to design and develop algorithms and software components that expand and integrate the existing framework, as well as creating tools for testing and data visualization",
-          )
-        ),
-      ),),
+// Simple conversion for programming skills from [name, level] arrays to named tuples
+#let convert_programming_skills = (skills) => {
+  skills.map(s => (name: s.at(0), level: s.at(1)))
+}
+
+// Use the template with JSON data (minimal conversion needed)
+#cv(
+  name: cv_data.name,
+  title: cv_data.title,
+  location: cv_data.location,
+  email: cv_data.email,
+  linkedin: cv_data.linkedin,
+  github: cv_data.github,
+  phone: cv_data.phone,
+  summary: cv_data.summary,
+  skills: (
+    programming: convert_programming_skills(cv_data.skills.programming),
+    technologies: cv_data.skills.technologies,
+    domains: cv_data.skills.domains,
   ),
-  education: (
-    (
-      degree: "Ph.D. in Computer Science",
-      institution: "University of Genova",
-      location: "Genova, Italy",
-      year: "2016",
-      details: "Research topics: joint channel/source coding in communication networks, image data hiding, audio fingerprinting",
-    ),
-    (
-      degree: "M.Sc. in Telecommunication Engineering",
-      institution: "University of Genova",
-      location: "Genova, Italy",
-      year: "2012",
-    ),
-  ),
-  certifications: (
-    (
-      title: "Italian State Board Examination for Professional Engineering License",
-      year: "2012",
-    ),
-  ),
-  techincal_ventures: (
-    (
-      company: "DesignPilot.cc",
-      location: "",
-      description: "DesignPilot is an AI-powered tool that streamlines product design validation using LLMs, helping teams efficiently evaluate and refine product concepts.\nSupporting business strategy with technical insights in exchange for equity",
-      roles: (
-        (
-          title: "Founding Engineer",
-          period: "Oct 2024 - Present",
-          achievements: (
-            "Architected and implemented a production-ready FastAPI backend from proof-of-concept code, creating a scalable platform for AI-powered design validation",
-            "Designed comprehensive API system with Supabase integration, incorporating user authentication and Stripe payment processing",
-            "Applied machine learning expertise to enhance product validation workflows using large language models",
-          ),
-        ),
-      )
-    ),
-  ),
+  experience: cv_data.experience,
+  education: cv_data.education,
+  certifications: cv_data.certifications,
+  techincal_ventures: cv_data.technical_ventures,
 )
