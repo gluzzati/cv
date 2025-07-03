@@ -6,8 +6,8 @@
   "linkedin": "/in/giulio-luzzati-9bb79245",
   "github": "giulioluzzati",
   "phone": "+447397791131",
-  "summary": "Senior engineering lead with extensive expertise in developing systems that make sense of data. I architect end-to-end solutions that bridge algorithm research with production-ready implementations, creating reproducible workflows and metrics that drive measurable improvements in sensor technologies. My approach combines signal processing expertise with modern data pipeline automation, enabling cross-functional teams to make data-driven decisions and create tools that empower engineers, building scalable frameworks for experimentation.",
-  "skills": {
+  "summary": "Engineering lead with extensive expertise in harnessing and making sense of data. I analyse how systems work, design metrics and procedures to evaluate performance. My background is in digital signal processing and data science, and my solid full-stack development skills allow me to quickly build tools that enable data-driven decisions.",
+    "skills": {
     "programming": [
       ["Python", 3],
       ["MATLAB", 3],
@@ -16,7 +16,7 @@
       ["C++", 1],
       ["JS", 1]
     ],
-    "technologies": ["FastAPI", "PyTorch", "Docker", "CI/CD", "Microservices"],
+    "technologies": ["FastAPI", "PyTorch", "Docker", "CI/CD", "Microservices", "Embedded Systems"],
     "domains": ["Signal Processing", "Algorithms", "Data Pipelines", "Machine Learning", "Embedded Systems", "Automated Analytics"]
   },
   "experience": [
@@ -31,8 +31,8 @@
           "keywords": [],
           "achievements": [
             "Lead cross-functional collaboration between algorithm, hardware, and firmware teams for system integration",
-            "Built bespoke data pipeline framework for reproducible, version-controlled signal analysis across sensor iterations, harnessing heterogeneous sources and data processing blocks (matlab, python)",
-            "Brought analysis and validation of sensor performance to the next level, driving core technology advances and informed design decisions",
+            "Design metrics and procedures for evaluating sensor performance to drive improvement of sensor design", 
+            "Built bespoke data pipeline framework for reproducible, version-controlled analysis across sensor iterations, with heterogeneous data sources and processing",
             "Designed algorithms for novel sensor types (inferring position from multidimensional pressure sensor data) and delivered full real-time demo software platform",
             "Developed ML alternatives (bespoke neural network designs) to traditional DSP algorithms using PyTorch/Lightning, leveraging cloud GPU infrastructure"
           ]
