@@ -1,0 +1,130 @@
+{
+  "name": "Giulio Luzzati",
+  "title": "Ph.D.",
+  "location": "Cambridge, UK",
+  "email": "giulio.luzzati@live.it",
+  "linkedin": "/in/giulio-luzzati-9bb79245",
+  "github": "giulioluzzati",
+  "phone": "+447397791131",
+  "summary": "Senior engineering lead with extensive expertise in developing systems that make sense of data. I architect end-to-end solutions that bridge algorithm research with production-ready implementations, creating reproducible workflows and metrics that drive measurable improvements in sensor technologies. My approach combines signal processing expertise with modern data pipeline automation, enabling cross-functional teams to make data-driven decisions and create tools that empower engineers, building scalable frameworks for experimentation.",
+  "skills": {
+    "programming": [
+      ["Python", 3],
+      ["MATLAB", 3],
+      ["C", 3],
+      ["Shell", 2],
+      ["C++", 1],
+      ["JS", 1]
+    ],
+    "technologies": ["FastAPI", "PyTorch", "Docker", "CI/CD", "Microservices"],
+    "domains": ["Signal Processing", "Algorithms", "Data Pipelines", "Machine Learning", "Embedded Systems", "Automated Analytics"]
+  },
+  "experience": [
+    {
+      "company": "Cambridge Touch Technologies",
+      "location": "Cambridge, UK",
+      "description": "CTT is a tech startup developing innovative cost-effective touch-pressure sensing for display and non-display surfaces.",
+      "roles": [
+        {
+          "title": "DSP Team Leader",
+          "period": "Jan 2022 - Present",
+          "keywords": [],
+          "achievements": [
+            "Lead cross-functional collaboration between algorithm, hardware, and firmware teams for system integration",
+            "Built bespoke data pipeline framework for reproducible, version-controlled signal analysis across sensor iterations, harnessing heterogeneous sources and data processing blocks (matlab, python)",
+            "Brought analysis and validation of sensor performance to the next level, driving core technology advances and informed design decisions",
+            "Designed algorithms for novel sensor types (inferring position from multidimensional pressure sensor data) and delivered full real-time demo software platform",
+            "Developed ML alternatives (bespoke neural network designs) to traditional DSP algorithms using PyTorch/Lightning, leveraging cloud GPU infrastructure"
+          ]
+        },
+        {
+          "title": "Principal DSP Engineer",
+          "period": "Jul 2021 - Dec 2021",
+          "keywords": [],
+          "achievements": [
+            "Real-time Python demos and visualization tools using Arcade library to demonstrate algorithms and technology potential",
+            "Developed core DSP libraries with robust configuration management for diverse sensor types",
+            "Automated the build (via CI/CD) and deployment of firmware and device provisioning packages (STM32 MCUs) with built-in validation and flashing tools",
+            "Created up an ARM MCU simulation environment, harnessing ARM's cycle accurate models to streamline the experimenting and profiling of routines, for M0, M32, M4 and M55 platforms"
+          ]
+        },
+        {
+          "title": "Senior DSP Engineer",
+          "period": "Oct 2018 - Jun 2021",
+          "keywords": [],
+          "achievements": [
+            "Designed (Matlab) and implemented (embedded C) algorithms for real-time signal processing on resource-constrained devices",
+            "Established comprehensive CI/CD infrastructure using GitLab and Docker, improving code quality and deployment efficiency"
+          ]
+        }
+      ]
+    },
+    {
+      "company": "5G Innovation Centre",
+      "location": "Guildford, UK",
+      "description": "The 5GIC is a research centre within the University of Surrey, with one of the largest 5G testbeds in the UK, and research and standardisation activity in close partnership with some of the largest players in the field.",
+      "roles": [
+        {
+          "title": "Research Software Engineer",
+          "period": "Oct 2017 - Oct 2018",
+          "achievements": [
+            "At the 5GIC I was part of the core network team. My contribution as a software engineer was to extend the core network code base to enable demonstrating proof of concepts for 5G features."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Akya",
+      "location": "Swindon, UK",
+      "description": "AKYA's core business was a novel \"dynamically reconfigurable logic\" approach to hardware design, for low power/low cost applications, unlike e.g. FPGA, providing \"just enough\" reconfigurability to meet design requirements.",
+      "roles": [
+        {
+          "title": "DSP Software Engineer",
+          "period": "Oct 2017 - Oct 2018",
+          "achievements": [
+            "At AKYA I contributed as a software engineer to the codebase of a framework to synthesise logic from a high-level description of the hardware. My role was to design and develop algorithms and software components that expand and integrate the existing framework, as well as creating tools for testing and data visualization"
+          ]
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Ph.D. in Computer Science",
+      "institution": "University of Genova",
+      "location": "Genova, Italy",
+      "year": "2016",
+      "details": "Research topics: joint channel/source coding in communication networks, image data hiding, audio fingerprinting"
+    },
+    {
+      "degree": "M.Sc. in Telecommunication Engineering",
+      "institution": "University of Genova",
+      "location": "Genova, Italy",
+      "year": "2012"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Italian State Board Examination for Professional Engineering License",
+      "year": "2012"
+    }
+  ],
+  "technical_ventures": [
+    {
+      "company": "DesignPilot.cc",
+      "location": "",
+      "description": "DesignPilot is an AI-powered tool that streamlines product design validation using LLMs, helping teams efficiently evaluate and refine product concepts.\nSupporting business strategy with technical insights in exchange for equity",
+      "roles": [
+        {
+          "title": "Founding Engineer",
+          "period": "Oct 2024 - Present",
+          "achievements": [
+            "Architected and implemented a production-ready FastAPI backend from proof-of-concept code, creating a scalable platform for AI-powered design validation",
+            "Designed comprehensive API system with Supabase integration, incorporating user authentication and Stripe payment processing",
+            "Applied machine learning expertise to enhance product validation workflows using large language models"
+          ]
+        }
+      ]
+    }
+  ]
+} 
