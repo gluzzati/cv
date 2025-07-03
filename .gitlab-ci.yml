@@ -43,16 +43,3 @@ compile_cv:
     paths:
       - $OUTPUT_FILE
     expire_in: 1 week
-
-# Deploy to GitLab Pages if desired
-pages:
-  stage: deploy
-  script:
-    - mkdir -p public
-    - cp $OUTPUT_FILE public/
-    - echo "PDF available at ${CI_PAGES_URL}/${OUTPUT_FILE}"
-  artifacts:
-    paths:
-      - public
-  only:
-    - main  # Only run on the main branch
