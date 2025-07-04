@@ -263,7 +263,7 @@
   github: "",
   phone: "",
   summary: "",
-  skills: (:),
+  keywords: (:),
   experience: (),
   education: (),
   certifications: (),
@@ -322,11 +322,11 @@
           v(16pt)
 
           // Skills section
-          section_title("Skills", colors)
+          section_title("Keywords", colors)
           indented_block({
-            skills_box("STACK", skills.stack.join(" • "), colors)
+            skills_box("STACK", keywords.stack.join(text(colors.secondary.lighten(50%), " • ")), colors)
             v(8pt)
-            skills_box("KEYWORDS", skills.keywords.join(" • "), colors)
+            skills_box("CORE", keywords.core.join(text(colors.secondary.lighten(50%)," • ")), colors)
           }, colors)
         }
       )
@@ -402,9 +402,9 @@
   github: cv_data.github,
   phone: cv_data.phone,
   summary: cv_data.summary,
-  skills: (
-    stack: cv_data.skills.stack,
-    keywords: cv_data.skills.keywords,
+  keywords: (
+    stack: cv_data.keywords.stack,
+    core: cv_data.keywords.core,
   ),
   experience: cv_data.experience,
   education: cv_data.education,
