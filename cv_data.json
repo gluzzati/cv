@@ -1,23 +1,18 @@
 {
   "name": "Giulio Luzzati",
+  "tagline": "DSP Engineering Lead · Embedded Systems · ML/Algorithms · Data Pipelines",
+  "tagline_impact" : "DSP Team Leader · Prototype to Production · Algorithm Design · System Integration",
+  "tagline_generic" : "DSP Engineering Lead · Real-time Systems · Algorithm Design · Team Leadership",
   "title": "Ph.D.",
   "location": "Cambridge, UK",
   "email": "giulio.luzzati@live.it",
   "linkedin": "/in/giulio-luzzati-9bb79245",
   "github": "giulioluzzati",
   "phone": "+447397791131",
-  "summary": "Engineering lead with extensive expertise in harnessing and making sense of data. I analyse how systems work, design metrics and procedures to evaluate performance. My background is in digital signal processing and data science, and my solid full-stack development skills allow me to quickly build tools that enable data-driven decisions.",
-    "skills": {
-    "programming": [
-      ["Python", 3],
-      ["MATLAB", 3],
-      ["C", 3],
-      ["Shell", 2],
-      ["C++", 1],
-      ["JS", 1]
-    ],
-    "technologies": ["FastAPI", "PyTorch", "Docker", "CI/CD", "Microservices", "Embedded Systems"],
-    "domains": ["Signal Processing", "Algorithms", "Data Pipelines", "Machine Learning", "Embedded Systems", "Automated Analytics"]
+  "summary": "Engineering lead specializing in real-time signal processing and data pipelines. I design and implement DSP algorithms with a focus on embedded systems, ensuring they perform reliably from prototype to production. I extract insights from complex and noisy sensor data. My technical background is full-stack, spanning embedded C development to cloud computing.",
+  "keywords": {
+    "stack": ["Python", "MATLAB", "C", "Docker", "PyTorch", "FastAPI"],
+    "core": ["Signal Processing", "Machine Learning", "CI/CD", "Embedded Systems", "Real-time", "DSP", "Algorithms", "Data Pipelines", "ARM MCU", "Microservices"]
   },
   "experience": [
     {
@@ -31,10 +26,10 @@
           "keywords": [],
           "achievements": [
             "Lead cross-functional collaboration between algorithm, hardware, and firmware teams for system integration",
-            "Design metrics and procedures for evaluating sensor performance to drive improvement of sensor design", 
-            "Built bespoke data pipeline framework for reproducible, version-controlled analysis across sensor iterations, with heterogeneous data sources and processing",
-            "Designed algorithms for novel sensor types (inferring position from multidimensional pressure sensor data) and delivered full real-time demo software platform",
-            "Developed ML alternatives (bespoke neural network designs) to traditional DSP algorithms using PyTorch/Lightning, leveraging cloud GPU infrastructure"
+            "Designed algorithms for novel sensor types (inferring input location from multidimensional pressure sensor data) and delivered full real-time demo software platform",
+            "Provide accurate insights from large datasets of sensor data. Design metrics and procedures for evaluating sensor performance to drive improvement of sensor design", 
+            "Built bespoke data pipeline framework for reproducible, version-controlled analysis across sensor iterations, with heterogeneous data sources and processing scripts",
+            "Exploration of ML approaches as alternative to traditional DSP algorithms. PyTorch/Lightning, cloud GPU infrastructure"
           ]
         },
         {
@@ -43,9 +38,8 @@
           "keywords": [],
           "achievements": [
             "Real-time Python demos and visualization tools using Arcade library to demonstrate algorithms and technology potential",
-            "Developed core DSP libraries with robust configuration management for diverse sensor types",
-            "Automated the build (via CI/CD) and deployment of firmware and device provisioning packages (STM32 MCUs) with built-in validation and flashing tools",
-            "Created up an ARM MCU simulation environment, harnessing ARM's cycle accurate models to streamline the experimenting and profiling of routines, for M0, M32, M4 and M55 platforms"
+            "Designed and built a firmware release and provisioning system: a REST API that assembles versioned binaries, calibration data, and memory-aware flashing scripts from CI-managed artifacts, automatically tailored per device.", 
+            "Built ARM MCU simulation environment, harnessing ARM's cycle accurate models to provide a framework to run experiments at scale for profiling C code routines, for several (M0, M32, M4 and M55) platforms"
           ]
         },
         {
@@ -68,7 +62,7 @@
           "title": "Research Software Engineer",
           "period": "Oct 2017 - Oct 2018",
           "achievements": [
-            "At the 5GIC I was part of the core network team. My contribution as a software engineer was to extend the core network code base to enable demonstrating proof of concepts for 5G features."
+            "At the 5GIC I was part of the core network team. I worked on and extended the core network code base to enable demonstrating proof of concepts for 5G features."
           ]
         }
       ]
@@ -80,7 +74,7 @@
       "roles": [
         {
           "title": "DSP Software Engineer",
-          "period": "Oct 2017 - Oct 2018",
+          "period": "Nov 2016 - Oct 2017",
           "achievements": [
             "At AKYA I contributed as a software engineer to the codebase of a framework to synthesise logic from a high-level description of the hardware. My role was to design and develop algorithms and software components that expand and integrate the existing framework, as well as creating tools for testing and data visualization"
           ]

@@ -255,6 +255,7 @@
 // Main CV function
 #let cv(
   name: "",
+  tagline: "",
   title: "",
   location: "",
   email: "",
@@ -298,7 +299,12 @@
             center,
             text(colors.secondary.darken(10%), size: 24pt, tracking: -1.5pt, weight: "semibold", name)
           )
-          v(10pt)
+          v(-18pt)
+          align(
+            center,
+            text(colors.secondary, size: 9pt, weight: "light", tagline)
+          )
+          v(25pt)
 
           // About section
           section_title("About Me", colors)
@@ -318,23 +324,9 @@
           // Skills section
           section_title("Skills", colors)
           indented_block({
-            skills_box("DOMAINS", skills.domains.join("\n"), colors)
-            grid(
-              columns: 2,
-              gutter: 8pt,
-              skills_box(
-                "PROGRAMMING",
-                programming_skills_grid(skills.programming, base_color, colors),
-                colors,
-                min_height: 82pt
-              ),
-              skills_box(
-                "TECHNOLOGIES",
-                skills.technologies.join("\n"),
-                colors,
-                min_height: 82pt
-              )
-            )
+            skills_box("STACK", skills.stack.join(" • "), colors)
+            v(8pt)
+            skills_box("KEYWORDS", skills.keywords.join(" • "), colors)
           }, colors)
         }
       )
@@ -402,6 +394,7 @@
 // Use the template with JSON data (minimal conversion needed)
 #cv(
   name: cv_data.name,
+  tagline: cv_data.tagline,
   title: cv_data.title,
   location: cv_data.location,
   email: cv_data.email,
@@ -410,9 +403,8 @@
   phone: cv_data.phone,
   summary: cv_data.summary,
   skills: (
-    programming: convert_programming_skills(cv_data.skills.programming),
-    technologies: cv_data.skills.technologies,
-    domains: cv_data.skills.domains,
+    stack: cv_data.skills.stack,
+    keywords: cv_data.skills.keywords,
   ),
   experience: cv_data.experience,
   education: cv_data.education,
