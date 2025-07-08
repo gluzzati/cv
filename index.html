@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Versions - GitLab CI Builds</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CV Versions</h1>
+            <p>Browse and view CV PDFs from different commits</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="sidebar">
+                <h2>Commits</h2>
+                <div id="loading" class="loading">Loading commits...</div>
+                <div id="error" class="error" style="display: none;"></div>
+                <div id="commits-list" class="commits-list"></div>
+            </div>
+            
+            <div class="main-pane">
+                <div id="welcome" class="welcome">
+                    <h2>Welcome</h2>
+                    <p>Select a commit from the left to view the CV PDF</p>
+                </div>
+                <div id="pdf-loading" class="loading" style="display: none;">Loading PDF...</div>
+                <div id="pdf-error" class="error" style="display: none;"></div>
+                <div id="pdf-container"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

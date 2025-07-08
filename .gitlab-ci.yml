@@ -20,12 +20,9 @@ compile_cv:
     - mv /tmp/typst-x86_64-unknown-linux-musl/typst /usr/local/bin/
     - chmod +x /usr/local/bin/typst
     
-        # Setup fonts from repository
+    # Setup fonts from repository
     - mkdir -p ~/.fonts/
     - cp fonts/* ~/.fonts/ || true
-    - fc-cache -f -v
-
-    # Setup fonts from repository
     - fc-cache -f -v
     
     # List available fonts for debugging
@@ -44,16 +41,29 @@ compile_cv:
       - $OUTPUT_FILE
     expire_in: 1 week
 
-
-# Deploy to GitLab Pages if desired
+# Deploy to GitLab Pages
 pages:
   stage: deploy
+  cache:
+    key: pdf-builds
+    paths:
+      - public/builds
+    policy: pull-push
   script:
-    - mkdir -p public
-    - cp $OUTPUT_FILE public/
-    - echo "PDF available at ${CI_PAGES_URL}/${OUTPUT_FILE}"
+    - mkdir -p public/builds
+    - cp $OUTPUT_FILE public/cv.pdf
+    - cp $OUTPUT_FILE public/builds/cv-${CI_COMMIT_SHA:0:8}.pdf
+    - echo "Creating dynamic GitLab Pages interface..."
+    
+        # Copy the static website files
+    - cp index.html public/
+    - cp style.css public/
+    - cp script.js public/
+    - cp config.js public/
+    
+    - echo "GitLab Pages deployment complete"
   artifacts:
     paths:
       - public
   only:
-    - main  # Only run on the main branch
+    - main  # Only run on the main branch 
