@@ -287,6 +287,12 @@ class CVBrowser {
         document.getElementById('pdf-loading').style.display = 'none';
         document.getElementById('pdf-error').style.display = 'none';
         
+        // Show download button
+        const downloadBtn = document.getElementById('download-btn');
+        downloadBtn.href = url;
+        downloadBtn.style.display = 'inline-flex';
+        document.querySelector('.pdf-actions').style.display = 'block';
+        
         const pdfContainer = document.getElementById('pdf-container');
         pdfContainer.style.display = 'block';
         pdfContainer.innerHTML = ''; // Clear previous PDF
