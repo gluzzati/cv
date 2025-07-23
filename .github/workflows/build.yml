@@ -1,0 +1,53 @@
+name: Build and Deploy CV
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  CV_SOURCE: cv.typ
+  OUTPUT_FILE: cv.pdf
+  TYPST_VERSION: "v0.13.0"
+
+jobs:
+  build:
+    name: Build CV with Typst
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl xz-utils fontconfig
+
+      - name: Install Typst
+        run: |
+          curl -L https://github.com/typst/typst/releases/download/${{ env.TYPST_VERSION }}/typst-x86_64-unknown-linux-musl.tar.xz | sudo tar -xJf - -C /usr/local/bin --strip-components=1
+          sudo chmod +x /usr/local/bin/typst
+          typst --version
+
+      - name: Setup fonts
+        run: |
+          # Create fonts directory if it doesn't exist
+          mkdir -p ~/.fonts/
+          # Copy fonts if the fonts directory exists in the repo
+          if [ -d "fonts" ]; then
+            cp fonts/* ~/.fonts/
+          fi
+          # Update font cache
+          fc-cache -f -v
+
+      - name: Compile CV
+        run: typst compile ${{ env.CV_SOURCE }} ${{ env.OUTPUT_FILE }}
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf-artifact
+          path: ${{ env.OUTPUT_FILE }}
+          retention-days: 7 # Equivalent to GitLab's expire_in: 1 week
+
