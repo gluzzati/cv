@@ -12,8 +12,8 @@
   "phone": "+447397791131",
   "summary": "Engineering lead specializing in real-time signal processing and data pipelines. I design and implement DSP algorithms with a focus on embedded systems, ensuring they perform reliably from prototype to production. I extract insights from complex and noisy sensor data. My technical background is full-stack, spanning embedded C development to cloud computing.",
   "keywords": {
-    "stack": ["Python", "MATLAB", "C", "Docker", "PyTorch", "FastAPI"],
-    "core": ["Signal Processing", "Machine Learning", "CI/CD", "Embedded Systems", "Real-time", "DSP", "Algorithms", "Data Pipelines", "ARM MCU", "Microservices"]
+    "stack": ["Python", "MATLAB", "C", "Docker", "PyTorch", "FastAPI", "C++", "QT"],
+    "core": ["Signal Processing", "Machine Learning", "CI/CD", "Embedded Systems", "Real-time", "DSP", "Algorithms", "Data Pipelines", "ARM MCU", "Distributed Systems"]
   },
   "experience": [
     {
@@ -30,7 +30,7 @@
             "Designed algorithms for novel sensor types (inferring input location from multidimensional pressure sensor data) and delivered full real-time demo software platform",
             "Provide accurate insights from large datasets of sensor data. Design metrics and procedures for evaluating sensor performance to drive improvement of sensor design", 
             "Built bespoke data pipeline framework for reproducible, version-controlled analysis across sensor iterations, with heterogeneous data sources and processing scripts",
-            "Exploration of ML approaches as alternative to traditional DSP algorithms. PyTorch/Lightning, cloud GPU infrastructure"
+            "Exploration of ML approaches as alternative to traditional DSP algorithms. PyTorch/Lightning, cloud GPU/CUDA infrastructure"
           ]
         },
         {
@@ -63,7 +63,7 @@
           "title": "Research Software Engineer",
           "period": "Oct 2017 - Oct 2018",
           "achievements": [
-            "At the 5GIC I was part of the core network team. I worked on and extended the core network code base to enable demonstrating proof of concepts for 5G features."
+            "At the 5GIC I was part of the core network team. I worked on and extended the core network code base to enable demonstrating proof of concepts for 5G features. C++/QT/Build system"
           ]
         }
       ]
